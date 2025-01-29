@@ -69,37 +69,35 @@ int main() {
     NumberGuess obj;
     int difficulty;
     int resetGame; 
-    retake: //Restart the game here
-    std::cout << "\t\t Welcome to the Number Guessing game!" << std::endl;
-    std::cout << "\t\t_______________________________________" << std::endl;
-    std::cout << "I will be choosing a number between 1-100 and you will have to guess which number it is!"<< std::endl << std::endl;
-    std::cout << "Select Difficulty:" << std::endl;
-    std::cout << "1. Easy (10 chances)\n2. Medium (6 chances)\n3. Hard (4 chances)\n4. Hell (2 chances)" << std::endl;
-    std::cin >> difficulty;
-
-    switch (difficulty) {
-        case 1:
-            obj.easyMode();
-            break;
-        case 2:
-            obj.mediumMode();
-            break;
-        case 3:
-            obj.hardMode();
-            break;
-        case 4:
-            obj.hellMode();
-            break;
-        default:
-            std::cout << "Invalid input!!!"<< std::endl << std::endl;
-            goto retake;
-            break;
-    }
+        do{
+        std::cout << "\t\t Welcome to the Number Guessing game!" << std::endl;
+        std::cout << "\t\t_______________________________________" << std::endl;
+        std::cout << "I will be choosing a number between 1-100 and you will have to guess which number it is!"<< std::endl << std::endl;
+        std::cout << "Select Difficulty:" << std::endl;
+        std::cout << "1. Easy (10 chances)\n2. Medium (6 chances)\n3. Hard (4 chances)\n4. Hell (2 chances)" << std::endl;
+        std::cin >> difficulty;
+    
+        switch (difficulty) {
+            case 1:
+                obj.easyMode();
+                break;
+            case 2:
+                obj.mediumMode();
+                break;
+            case 3:
+                obj.hardMode();
+                break;
+            case 4:
+                obj.hellMode();
+                break;
+            default:
+                std::cout << "Invalid input!!!"<< std::endl << std::endl;
+                goto retake;
+                break;
+        }
     std::cout<<"Press 1 to play again: ";
     std::cin>>resetGame;
-    if(resetGame==1)
-        goto retake;
-    else
+    }while(resetGame==1);
         std::cout<<"Thank you for playing!";
     return 0;
 }
